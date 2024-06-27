@@ -48,6 +48,17 @@ class GFG {
 }
 ```
 
+## Self Learning
+### Advantage 1
+1. In general, we try to invoke 2nd party function B from our 1st party function A
+2. This way only function A is in our control but the 2nd/3rd has the control over **what** to invoke and **when** to invoke
+3. But we use delegates, we have control over both function A and function B, the only control 2md/3rd party would have is over **when** to invoke it
+4. All we need to do is to pass the function name and it will take it and decide when to invoke it
+
+### Adanvtage 2
+1. Today we might be invoking a function of some signature
+2. Tomorrow we can pass some other function name with same signature too
+
 Steps:
 1. No need for creating a separate delegate
 2. Associate your function name with the Func generic delegate knowing the input parameter and output  parameter
