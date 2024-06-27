@@ -189,7 +189,7 @@ public double GeneratePrice(Func<double,double> funcDel, Action<string> alertAct
 {
     double sumTotal = CartProducts.Sum(x => x.ItemPrice);
 
-    alertAction("Generating discout for you");
+    alertAction("Generating discout for you");		//We decide here to invoke alert here with a string here
 
     return  funcDel(sumTotal);
 }
