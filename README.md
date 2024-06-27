@@ -1,6 +1,14 @@
 # Learning Callbacks in C#
 
 # Delegates
+1. With delegatDelegates allow functions to be passed as parameters, returned from a function as a value, and stored in an array
+2. Delegates, you can treat a function as data.
+3. They have a signature and a return type. A function that is added to delegates must be compatible with this signature
+4. Once a delegate object has been created, it may invoke the methods it points to at runtime.
+5. Delegates can call methods synchronously and asynchronously.
+6. invoking a delegate syntactically is the exact same as calling a regular function
+
+
 
 ## Example 1
 ```
@@ -55,24 +63,37 @@ namespace DelegatesnEvents
 
      public ShoppingCartModel() { }
 
-     //Getting this function logic to main class intead
-     public double GenerateFinalPrice(FinalPriceDel finalPriceDel)
+      //Getting this function logic to main class intead
+/* public double GeneratePrice()
+ {
+     double sumTotal = CartProducts.Sum(x => x.ItemPrice);
+
+     double finalPrice = 0.0;
+     if (sumTotal > 90)
      {
-         double sumTotal = CartProducts.Sum(x => x.ItemPrice);
-
-         finalPriceDel(sumTotal);
-	//Moved this logic to main class 
-         //if (sumTotal > 90)
-         //{
-         //    Console.WriteLine($"final price is {sumTotal * 0.9}");
-         //}
-         //else if (sumTotal > 50)
-         //{
-         //    Console.WriteLine($"final price is {sumTotal * 0.7}");
-         //}
-
-         return 0;
+         finalPrice =  sumTotal * 0.9;
      }
+     else if (sumTotal > 50)
+     {
+         finalPrice = sumTotal * 0.7;
+     }
+
+     return finalPrice;
+ }*/
+
+ /*public double GeneratePrice(FinalPriceDel funcDel)
+ {
+     double sumTotal = CartProducts.Sum(x => x.ItemPrice);
+
+     return funcDel(sumTotal);
+ }*/
+
+ public double GeneratePrice(Func<double,double> funcDel)
+ {
+     double sumTotal = CartProducts.Sum(x => x.ItemPrice);
+     
+     return  funcDel(sumTotal);
+ }
  }
 }
 ```
