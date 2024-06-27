@@ -25,6 +25,7 @@ Steps:
 1. First declare a a custom delegate of some signature outside the main method
 2. Create an object of the delegate and initialize it `my_delegate obj = mymethod;`
 3. Call the delegate to invoke the function `obj(12, 34, 35, 34)`
+4. Note: In order to invoke the function you just need to pass the function name and no parameters along
 
 # Generic Delegate - Func
 ```
