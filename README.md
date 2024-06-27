@@ -61,7 +61,7 @@ namespace DelegatesnEvents
          double sumTotal = CartProducts.Sum(x => x.ItemPrice);
 
          finalPriceDel(sumTotal);
-
+	//Moved this logic to main class 
          //if (sumTotal > 90)
          //{
          //    Console.WriteLine($"final price is {sumTotal * 0.9}");
@@ -102,7 +102,8 @@ namespace DelegatesnEvents
 
         static void FinalPrice(double sumTotal)
         {
-
+            //The sumTotal comes from the callback
+	    //It works because you pass the address of the function to be invoked 
             if (sumTotal > 90) {
                 Console.WriteLine($"final price is {sumTotal * 0.9}"); }
             else if (sumTotal > 50) { 
