@@ -1,6 +1,8 @@
 # Learning Callbacks in C#
 
 # Delegates
+
+## Example 1
 ```
 class GFG { 
 
@@ -26,6 +28,91 @@ Steps:
 2. Create an object of the delegate and initialize it `my_delegate obj = mymethod;`
 3. Call the delegate to invoke the function `obj(12, 34, 35, 34)`
 4. Note: In order to invoke the function you just need to pass the function name and no parameters along
+
+## Example 2
+Product structure
+```
+namespace DelegatesnEvents
+{
+    public struct Product
+    {
+        public string ItemName;
+        public double ItemPrice;
+    }
+}
+```
+
+Shopping Cart
+```
+namespace DelegatesnEvents
+{
+     internal class ShoppingCartModel
+ {
+
+     public List<Product>? CartProducts { get; set; } = new List<Product>();
+
+     public delegate void FinalPriceDel(double price);
+
+     public ShoppingCartModel() { }
+
+     //Getting this function logic to main class intead
+     public double GenerateFinalPrice(FinalPriceDel finalPriceDel)
+     {
+         double sumTotal = CartProducts.Sum(x => x.ItemPrice);
+
+         finalPriceDel(sumTotal);
+
+         //if (sumTotal > 90)
+         //{
+         //    Console.WriteLine($"final price is {sumTotal * 0.9}");
+         //}
+         //else if (sumTotal > 50)
+         //{
+         //    Console.WriteLine($"final price is {sumTotal * 0.7}");
+         //}
+
+         return 0;
+     }
+ }
+}
+```
+Main class 
+```
+namespace DelegatesnEvents
+{
+    internal class Program
+    {
+        static void AddItemsToCart(ShoppingCartModel shoppingCartModel)
+        {
+            shoppingCartModel.CartProducts?.Add(new Product { ItemName = "Nimbu", ItemPrice = 20 });
+            shoppingCartModel.CartProducts?.Add(new Product { ItemName = "Mirchi", ItemPrice = 30 });
+            shoppingCartModel.CartProducts?.Add(new Product { ItemName = "Dhaniya", ItemPrice = 15 });
+            shoppingCartModel.CartProducts?.Add(new Product { ItemName = "Gochi", ItemPrice = 25 });
+        }
+
+        static void Main(string[] args)
+        {
+            ShoppingCartModel shoppingCartModel = new ShoppingCartModel();
+
+            AddItemsToCart(shoppingCartModel);
+
+            Console.WriteLine($"Effective card price is {shoppingCartModel.GenerateFinalPrice(FinalPrice)}"); ;
+            
+        }
+
+        static void FinalPrice(double sumTotal)
+        {
+
+            if (sumTotal > 90) {
+                Console.WriteLine($"final price is {sumTotal * 0.9}"); }
+            else if (sumTotal > 50) { 
+                Console.WriteLine($"final price is {sumTotal * 0.7}"); }
+
+        }
+    }
+}
+```
+
 
 # Generic Delegate - Func
 ```
