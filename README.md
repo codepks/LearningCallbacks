@@ -84,7 +84,7 @@ namespace DelegatesnEvents
  /*public double GeneratePrice(FinalPriceDel funcDel)
  {
      double sumTotal = CartProducts.Sum(x => x.ItemPrice);
-
+     //since our main class function returns double, we will return the double too here from the function callback
      return funcDel(sumTotal);
  }*/
 
@@ -156,6 +156,45 @@ class GFG {
     } 
 }
 ```
+
+# Generic Delegate - Action
+Action delegates return void and thereby it can be used for alerts
+Main Class
+```
+  static void Main(string[] args)
+  {
+      ShoppingCartModel shoppingCartModel = new ShoppingCartModel();
+
+      AddItemsToCart(shoppingCartModel);
+
+      Console.WriteLine($"Effective card price is {shoppingCartModel.GeneratePrice(FinalPrice, AlertCall)}"); ;
+      
+  }
+
+  .
+  .
+  .
+
+  private static void AlertCall(string message)
+  {
+      Console.WriteLine(message);
+  }
+```
+
+Shopping Cart
+```
+.
+.
+public double GeneratePrice(Func<double,double> funcDel, Action<string> alertAction)
+{
+    double sumTotal = CartProducts.Sum(x => x.ItemPrice);
+
+    alertAction("Generating discout for you");
+
+    return  funcDel(sumTotal);
+}
+```
+
 
 ## Self Learning
 ### Advantage 1
