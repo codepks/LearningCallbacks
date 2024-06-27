@@ -237,6 +237,11 @@ It is not a delegate, rather defining your own anonymous short function on top o
      (message) => Console.WriteLine($"Generating Discount v2 {message}")) }") ;
 ```
 
+# Button and Events
+In winform UI functions are subscribed to buttons click events liek this:
+```
+this.someButton.Click += new System.EventsHAndler(this.someButton_Click);
+```
 
 # IObservable
 
