@@ -208,10 +208,33 @@ public double GeneratePrice(Func<double,double> funcDel, Action<string> alertAct
 2. Tomorrow we can pass some other function name with same signature too
 
 Steps:
-1. No need for creating a separate delegate
+1. No need for creating a separate delegate in Func and ACtion
 2. Associate your function name with the Func generic delegate knowing the input parameter and output  parameter
 3. Input parameter being the initial parameters and output being the last one
 
+## Theory
+[source](https://www.c-sharpcorner.com/UploadFile/84c85b/delegates-and-events-C-Sharp-net/)
+
+1. Callback is generally used for one function to report back to another function in an application
+2. Objective of callback is handle button clicking , menu selection and mouse moving activities
+3. Issue : It is not type sage
+
+# Anoanymous Methods
+It is not a delegate, rather defining your own anonymous short function on top of the already passed delegates to a function
+```
+//Passing methods to get invoked
+ Console.WriteLine($"Effective cart price is {shoppingCartModel.GeneratePrice(FinalPrice, AlertCall)}"); ;
+
+ Console.WriteLine(); 
+
+//Utilizing the function and signature to pass your own short functions or may be extending functionalities
+ Console.WriteLine($"Effective cart price 2 is {shoppingCartModel.GeneratePrice((sumTotal) =>
+ {
+     if(sumTotal > 70) { return  sumTotal*0.6; }
+     return 0;
+ },
+     (message) => Console.WriteLine($"Generating Discount v2 {message}")) }") ;
+```
 
 
 # IObservable
