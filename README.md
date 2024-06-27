@@ -38,6 +38,7 @@ Steps:
 4. Note: In order to invoke the function you just need to pass the function name and no parameters along
 
 ## Example 2
+[Tim Corey](https://www.youtube.com/watch?v=R8Blt5c-Vi4&ab_channel=IAmTimCorey)
 Product structure
 ```
 namespace DelegatesnEvents
