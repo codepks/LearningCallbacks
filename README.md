@@ -249,8 +249,7 @@ this.someButton.Click += new System.EventsHAndler(this.someButton_Click);
 
 # IObservable
 
-
-
+#Reactive Pattern
 
 
 
