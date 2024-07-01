@@ -249,12 +249,49 @@ this.someButton.Click += new System.EventsHAndler(this.someButton_Click);
 
 # IObservable
 
-#Reactive Pattern
+# Reactive Pattern
 
 
 
+# Observable Collection
+**Parent classes** <br>
+Object -> Collection<T> -> ObservableCollectoin<T>  <br>
 
+**Implement interfaces** <br>
+1. INotifyCollectionChanged - which has function _CollectionChanged_
+2. INotifyPropertyChanged - which has function _PropertyChanged_
 
+```
+    ObservableCollection<int> list = new ObservableCollection<int>();
+
+    public static void ListCollectoionChangedHandler(object? sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+    {
+        if (sender is ObservableCollection<int> observableList)
+        {
+            if (observableList.Count == 0)
+                Console.WriteLine("The list count is 0");
+            else
+                Console.WriteLine("List count is positive");
+        }
+    }
+
+    static void Main()
+    {
+        MyClass myClass = new MyClass();
+
+        //Adding 2 integers for the start
+        myClass.list.Add(1);
+        myClass.list.Add(2);
+
+        // Calling the function of the ObservableCollection class which is an event so we can subscribe a function to it
+        myClass.list.CollectionChanged += ListCollectoionChangedHandler;
+
+        //On these would send changes as we subscribed before this only
+        myClass.list.Add(3);
+        myClass.list.Add(4);
+    }
+}
+```
 
 
 
