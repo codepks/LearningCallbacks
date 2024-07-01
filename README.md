@@ -259,7 +259,7 @@ It is a general pattern to understand how `IObserver` and `IObservable` work tog
   	- `OnNext(T)` - Provides the observer with new data
 
 
-[Codein](ObserverPattern.cs)
+[Check the code here](ObserverPattern.cs)
 
 # Observable Collection
 **Parent classes** <br>
