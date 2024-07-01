@@ -308,6 +308,10 @@ Occurs when a property value changes. Return `event`
 PropertyChanged 
 ```
 
+source : https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.inotifypropertychanged?view=net-8.0
+
+YET TO STUDY
+
 # Event Based Mechanism
 
 # Event Aggregator
