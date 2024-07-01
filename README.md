@@ -300,6 +300,13 @@ Object -> Collection<T> -> ObservableCollectoin<T>  <br>
     }
 }
 ```
+# Notify Property Changed
+Mandatory Function <br>
+	
+Occurs when a property value changes. Return `event`
+```
+PropertyChanged 
+```
 
 # Event Based Mechanism
 
