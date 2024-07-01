@@ -247,11 +247,19 @@ this.someButton.Click += new System.EventsHAndler(this.someButton_Click);
 
 [source](https://www.youtube.com/watch?v=-1cftB9q1kQ&ab_channel=IAmTimCorey)
 
-# IObservable
+# IObserver and IObservable
+It is a general pattern to understand how `IObserver` and `IObservable` work together to create an **Observer Pattern**
+1. `IObservable` represents the class that sends notification
+2. Functions:
+	- `Subscribe (IObserver<T>)`
 
-# Reactive Pattern
+3. `IObserver` represents the class which receives notification
+	- `OnCompleted ()` - Notifies that IObserverable is done sending notification
+ 	- `OnError(Exception)` - Notifies that provider has experienced an error
+  	- `OnNext(T)` - Provides the observer with new data
 
 
+[Codein](ObserverPattern.cs)
 
 # Observable Collection
 **Parent classes** <br>
@@ -293,12 +301,11 @@ Object -> Collection<T> -> ObservableCollectoin<T>  <br>
 }
 ```
 
+# Event Based Mechanism
 
+# Event Aggregator
 
-
-
-
-
+# Reactive Pattern
 
 
 
