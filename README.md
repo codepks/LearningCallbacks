@@ -315,7 +315,16 @@ YET TO STUDY
 # Event Based Mechanism
 
 # Event Aggregator
+/*
+ * We are adding all the lambdas to a list 
+ * Subscribing means adding the lamda to the Disctionary
+ * When subscribing, add your lambda to your type list
+ * When publishing then publish the message from your type list
 
+ */
+
+ [Learn from CodeProject](https://www.codeproject.com/Articles/5376132/EventAggregator-My-Take)
+ 
 # Reactive Pattern
 
 
