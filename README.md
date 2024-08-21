@@ -327,6 +327,7 @@ YET TO STUDY
  
 # Reactive Programming
 
+## Generic Example
 In reactive programming, subject subscribes to a method and publishes a message too using OnNext.
 ```
 using System;  
@@ -384,9 +385,35 @@ namespace ReactiveExample
     }  
 }
 ```
+## KT example
+**Subscribing**
+```
+m_ZSEUIEventBus?.OfType<AbortCalibration>().Subscribe(abortCalibrationEvent =>
+{
+	//Function call on publishing
+	if (abortCalibrationEvent.SoftAbort)
+	{
+	    m_ZSEUIEventBus.Publish(new UIStateUpdated() { NewUIState = UIFunctionalState.CalibrationAborted });
+	    m_ZSECalExecutor.SoftAbort();
+	}
+	else
+	{
+	    m_ZSEUIEventBus.Publish(new UIStateUpdated() { NewUIState = UIFunctionalState.CalibrationAborted });
+	    m_ZSECalExecutor.Abort();
+	}
+});
+```
+**Publishing**
+```
+private void StopCalibration(object oSrc)
+{
+    LogText = "Stop calibration requested";
+    m_ZSEUIEventBus.Publish(new AbortCalibration() {SoftAbort = true});
+}
+```
 
-
-
+1. The above code states that whenever publishing of `AbortCalibration()` happens, the **Function call** happens.
+2. It is as if the Function call has subscribed to the event
 
 
 # Learning Callbacks in C++
