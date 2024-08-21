@@ -325,8 +325,65 @@ YET TO STUDY
 
  [Learn from CodeProject](https://www.codeproject.com/Articles/5376132/EventAggregator-My-Take)
  
-# Reactive Pattern
+# Reactive Programming
 
+In reactive programming, subject subscribes to a method and publishes a message too using OnNext.
+```
+using System;  
+using System.Reactive.Subjects;  
+
+namespace ReactiveExample  
+{  
+    public class Program  
+    {  
+        public static void Main(string[] args)  
+        {  
+            // Create a Subject of type string  
+            var subject = new Subject<string>();  
+
+            // Subscribe to the Subject  
+            subject.Subscribe(  
+                onNext: message => Console.WriteLine($"Received: {message}"),  
+                onError: error => Console.WriteLine($"Error: {error.Message}"),  
+                onCompleted: () => Console.WriteLine("No more messages.")  
+            );  
+
+            // Publish messages  
+            Console.WriteLine("Publishing messages...");  
+            subject.OnNext("Hello, World!");  
+            subject.OnNext("This is a test of Reactive Extensions.");  
+
+            // Simulate an error  
+            subject.OnError(new Exception("Something went wrong!"));  
+
+            // After an error is sent, the subject will complete  
+            // If you try to publish after an error, it will throw an exception.  
+            try  
+            {  
+                subject.OnNext("This will not be received.");  
+            }  
+            catch (Exception ex)  
+            {  
+                Console.WriteLine($"Caught exception: {ex.Message}");  
+            }  
+
+            // Subscribe a second time  
+            var secondSubscription = subject.Subscribe(  
+                onNext: message => Console.WriteLine($"Second subscriber received: {message}"),  
+                onError: error => Console.WriteLine($"Second subscriber error: {error.Message}"),  
+                onCompleted: () => Console.WriteLine("Second subscriber completed.")  
+            );  
+
+            // Note: The second subscription will not receive any messages or errors,  
+            // because the subject has already completed  
+            subject.OnCompleted();  
+
+            // Clean up subscriptions  
+            secondSubscription.Dispose();  
+        }  
+    }  
+}
+```
 
 
 
