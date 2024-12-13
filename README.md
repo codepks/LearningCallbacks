@@ -160,7 +160,7 @@ class GFG {
 
 # Generic Delegate - Action
 Action delegates return void and thereby it can be used for alerts
-Main Class
+
 ```
   static void Main(string[] args)
   {
