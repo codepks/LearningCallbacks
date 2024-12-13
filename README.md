@@ -244,7 +244,7 @@ In winform UI functions are subscribed to buttons click events liek this:
 this.someButton.Click += new System.EventsHAndler(this.someButton_Click);
 ```
 
-# Eventsk
+# Events
 
 [source](https://www.youtube.com/watch?v=-1cftB9q1kQ&ab_channel=IAmTimCorey)
 
