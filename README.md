@@ -12,6 +12,7 @@ public delegate void Notify(string message);
 
 **Event creation**
 ```
+<Data-Type> <Event> <Delegate-Name> <Event-Name>
 public event Notify EventOccurred;  
 
 // Method to trigger the event  
@@ -35,6 +36,7 @@ public void OnEventOccurred(string message)
 EventOccurred += OnEventOccurred; 
 ```
 
+## Events using generic delegates 
 
 
 # Delegates
