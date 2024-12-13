@@ -38,6 +38,12 @@ EventOccurred += OnEventOccurred;
 ```
 
 ## Events using generic delegates 
+```
+public event Action<float> TemperatureExceeded;  
+```
+1. In the example below only functions with `void` return type and `float` parameter type can subscribe to the event
+2. If `Action<float>` doesn't have `<float>` then only parameterless functions can subscribe to the event
+
 
 
 # Delegates
