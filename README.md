@@ -14,7 +14,8 @@ public delegate void Notify(string message);
 ```
 <Data-Type> <Event> <Delegate-Name> <Event-Name>
 public event Notify EventOccurred;  
-
+```
+```
 // Method to trigger the event  
 public void TriggerEvent(string message)  
 {  
