@@ -1,5 +1,42 @@
 # Learning Callbacks in C#
 
+# Understanding Events and Deletegates V2.0
+## Events and Delegates
+1. **Delegates** are function signature that hold the reference of a function
+2. **Events**, we create it using a delegate to let the subscriber know which signature can subscribe to this event. (IMP)
+
+**Delegate**
+```
+public delegate void Notify(string message);
+```
+
+**Event creation**
+```
+public event Notify EventOccurred;  
+
+// Method to trigger the event  
+public void TriggerEvent(string message)  
+{  
+    // Check if there are any subscribers and invoke the event  
+    EventOccurred?.Invoke(message);  
+}
+```
+**Explaination** <br>
+In the code above only functions of signature as void Notify(string message) can subscribe to the `EventOccurred` event
+
+```
+public void OnEventOccurred(string message)  
+{  
+    Console.WriteLine($"Subscriber received message: {message}");  
+}
+```
+**Subscription**
+```
+EventOccurred += OnEventOccurred; 
+```
+
+
+
 # Delegates
 1. With Delegates allow functions to be passed as parameters, returned from a function as a value, and stored in an array
 2. Delegates, you can treat a function as data.
