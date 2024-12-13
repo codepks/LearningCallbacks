@@ -138,6 +138,7 @@ namespace DelegatesnEvents
 
 
 # Generic Delegate - Func
+They have return type too defeined in their 2nd data type
 ```
 class GFG { 
       // Method 
