@@ -1,7 +1,7 @@
 # Learning Callbacks in C#
 
 # Delegates
-1. With delegatDelegates allow functions to be passed as parameters, returned from a function as a value, and stored in an array
+1. With Delegates allow functions to be passed as parameters, returned from a function as a value, and stored in an array
 2. Delegates, you can treat a function as data.
 3. They have a signature and a return type. A function that is added to delegates must be compatible with this signature
 4. Once a delegate object has been created, it may invoke the methods it points to at runtime.
